@@ -1,0 +1,96 @@
+<html>   
+   <head>
+      <title>Form Validation</title> 
+      <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>     
+      <script type = "text/javascript">
+         <!--
+            // 
+            function validate() {
+      
+         if( document.signup.Name.value == "" ) {
+            alert( "Please provide your name!" );
+            document.signup.Name.focus() ;
+            return false;
+         }
+         if( document.signup.Email.value == "" ) {
+            alert( "Please provide your Email!" );
+            document.signup.Email.focus() ;
+            return false;
+         }
+         if( document.signup.phone.value == "" || isNaN( document.signup.phone.value ) ||
+            document.signup.phone.value.length != 10 ) {
+            
+            alert( "Please check your phone number" );
+            document.signup.phone.focus() ;
+            return false;
+         }
+         if(document.signup.password.value=='')
+                                {
+                                              alert("Please enter Password.");
+                                                document.signup.password.focus();
+                                                return false;
+                                }
+                                 else if(document.signup.password.value.length<6)
+                                {
+                                                alert("Password is too short.");
+                                                document.signup.password.focus();
+                                                return false;
+                                }
+                                if(document.signup.passconf.value=='')
+                                {
+                                                alert("Please confirm Password.");
+                                                document.signup.passconf.focus();
+                                                return false;
+                                }
+                                 else if(document.signup.password.value!=document.signup.passconf.value)
+                                {
+                                                alert("Password does not match.");
+                                                document.signup.password.focus();
+                                                return false;
+                                }
+         return( true );
+      }
+         //-->
+         $(document).ready(function(){
+
+$('input[name=gender]').change(function(){
+   var value=$('input[name=gender]:checked').val();
+   $('#tex').val(value);
+});
+});
+
+      </script>  
+      
+    
+   </head>
+   
+   <body>
+          <header style="width: 100%; height: 50px; background-color: #262626;"></header>
+     <div style="width: 100%; height: 620px; background-color: #008080;"><br>
+      <form action = "signup.php" name = "signup" onsubmit = "return(validate());" method="post" style="color: white;">
+        
+<ul><center>
+<font size=5 color="white">REGISTER FORM</font></p><br>
+<input type="text" name="Name" placeholder="NAME" value="" size="50"><br><br>
+<input type="text" name="Email" placeholder="EMAIL" value="" size="50"><br><br>
+<input type="text" id="tex" placeholder="GENDER" size="50"><br><br>
+<input type="radio" name="gender" value="Male">Male
+         <input type="radio" name="gender" value="Female">Female<br><br>
+         
+<input type="text" name="phone" placeholder="PHONE NUMBER" value="" size="50"><br><br>
+<input type="text" id="tex1" placeholder="UPLOAD IMAGE" size="25" style="margin-left: 75px;"><input type="file" name="img" placeholder="UPLOAD IMAGE" value="" ><br><br>
+<input type="text" id="tex1" placeholder="UPLOAD PDF FILE ONLY" size="25" style="margin-left: 75px;"><input type="file" name="file1" placeholder="UPLOAD IMAGE" value="" ><br><br>
+<input type="password" name="password" placeholder="PASSWORD"  value="" size="50"><br><br>
+<input type="password" name="passconf" placeholder="RETYPE PASSWORD" value="" size="50"><br><br>
+<textarea name="message" placeholder="MESSAGE" size="30" cols="52" rows="5"> </textarea><br><br>
+<div class="btn-lg round">
+<input type="reset" value="RESET" class=" btn-lg round" style="width: 75px;height: 30px;border-radius: 25px;";>
+<input type="submit" value="SAVE" name="submit" style="width: 75px;height: 30px;border-radius: 25px;margin-left: 170px;">
+</div>
+
+</center></ul>
+
+      </form>      
+   </body>
+   
+</html>
